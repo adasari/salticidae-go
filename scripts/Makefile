@@ -18,5 +18,6 @@ build/bench_network: build/lib/libsalticidae.a bench_network/main.go
 
 clean:
 	rm -rf build/
-	cd salticidae/; make clean
+	cd ../salticidae/
+	make clean
 	rm salticidae/CMakeCache.txt
