@@ -1,5 +1,7 @@
 package salticidae
 
+// #cgo CFLAGS: -I${SRCDIR}/salticidae/build/include/
+// #cgo LDFLAGS: -L${SRCDIR}/salticidae/build/lib/ -lsalticidae -luv -lssl -lcrypto -lstdc++
 // #include <stdlib.h>
 // #include "salticidae/netaddr.h"
 import "C"

@@ -1,5 +1,7 @@
 package salticidae
 
+// #cgo CFLAGS: -I${SRCDIR}/salticidae/build/include/
+// #cgo LDFLAGS: -L${SRCDIR}/salticidae/build/lib/ -lsalticidae -luv -lssl -lcrypto -lstdc++
 // #include "salticidae/util.h"
 import "C"
 import "unsafe"

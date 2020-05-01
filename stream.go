@@ -1,5 +1,7 @@
 package salticidae
 
+// #cgo CFLAGS: -I${SRCDIR}/salticidae/build/include/
+// #cgo LDFLAGS: -L${SRCDIR}/salticidae/build/lib/ -lsalticidae -luv -lssl -lcrypto -lstdc++
 // #include <stdlib.h>
 // #include "salticidae/stream.h"
 // #include "salticidae/endian.h"
@@ -182,7 +184,9 @@ func (self DataStream) Clear() { C.datastream_clear(self.inner) }
 func (self DataStream) Size() int { return int(C.datastream_size(self.inner)) }
 
 // Write a uint8 integer to the stream (no byte order conversion).
-func (self DataStream) PutU8(v uint8) bool { return bool(C.datastream_put_u8(self.inner, C.uint8_t(v))) }
+func (self DataStream) PutU8(v uint8) bool {
+	return bool(C.datastream_put_u8(self.inner, C.uint8_t(v)))
+}
 
 // Write a uint16 integer to the stream (no byte order conversion).
 func (self DataStream) PutU16(v uint16) bool {
